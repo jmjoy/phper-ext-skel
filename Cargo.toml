@@ -10,6 +10,4 @@ edition = "2018"
 crate-type = ["cdylib"]
 
 [dependencies]
-libc = "0.2.66"
-phper = "0.0.0"
-phper-sys = "0.0.0"
+phper = "0.1.0"

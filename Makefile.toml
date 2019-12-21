@@ -1,0 +1,20 @@
+[env]
+PHP_CONFIG_PATH = "php-config"
+TARGET_MODE = "release"
+BUILD_ARGS = "--release"
+
+[env.debug]
+TARGET_MODE = "debug"
+BUILD_ARGS = ""
+
+[tasks.install]
+script = [
+"set -xe",
+"cp target/$TARGET_MODE/lib{{crate_name}}.so $($PHP_CONFIG_PATH --extension-dir)/{{crate_name}}.so",
+]
+
+[tasks.test-compile]
+script = [
+"set -xe",
+"$($PHP_CONFIG_PATH --php-binary) tests/confirm_compiled.php",
+]
